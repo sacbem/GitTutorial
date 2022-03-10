@@ -1,7 +1,7 @@
 #include<string>
 #include<iostream>
 
-bool    Guess(int number){
+bool    Guess(int number) {
     static int target = -1;
 
     srand(time(NULL));
@@ -14,7 +14,9 @@ bool    Guess(int number){
         target = -1;
         return true;
     }
-    else std::cout << "Wrong" << std::endl;
+    else if (number > target) std::cout << "Smaller" << std::endl;
+    else if (number < target) std::cout << "Bigger" << std::endl;
+     
     return false;
 }
 
@@ -22,6 +24,7 @@ int main(){
 
     int guess ; 
     do{
+        std::cout<<"Choose a number  between 1 - 100 :";
         std::cin>>guess;
     }while (!Guess(guess));
 
